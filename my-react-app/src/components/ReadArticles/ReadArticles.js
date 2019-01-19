@@ -10,6 +10,7 @@ class ReadArticles extends Component {
     componentDidMount () {
         axios.get('http://localhost:3000/api/v1/articles')
             .then(response => {
+                console.log(response.data);
                 this.setState({articles: response.data});
             });
     } 
