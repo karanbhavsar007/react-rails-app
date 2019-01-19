@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import ArticlesTable from '../ArticlesTable/ArticlesTable';
 
 class ReadArticles extends Component {
     state = {
@@ -13,8 +14,13 @@ class ReadArticles extends Component {
             });
     } 
     render() {
+        const filteredArticles = this.state.articles;
+
         return (
-              <h1>Hi! I am react App!</h1>
+              <div>
+                  <ArticlesTable
+                    articles={filteredArticles} />
+              </div>
           );
     }
 }

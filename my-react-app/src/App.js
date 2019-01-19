@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReadArticles from './components/ReadArticles/ReadArticles';
+import CreateArticle from './components/CreateArticle/CreateArticle';
 
 class App extends Component {
   
@@ -7,6 +8,7 @@ class App extends Component {
     return (
       <div>
         <ReadArticles/>
+        <CreateArticle/>
       </div>
     );
   }
