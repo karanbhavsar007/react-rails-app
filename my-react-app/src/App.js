@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
+import ReadArticles from './components/ReadArticles/ReadArticles';
 
 class App extends Component {
+  
   render() {
     return (
-      <div className="App">
-        <h1>Hi! I am react App!</h1>
+      <div>
+        <ReadArticles/>
       </div>
     );
   }
