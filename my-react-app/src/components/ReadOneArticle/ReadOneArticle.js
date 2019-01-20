@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 class ReadOneArticle extends Component {
     state = {
-        title: '',
-        description: '',
-        author: '',
-        tags: '',
+        title: this.props.articleId.title,
+        description: this.props.articleId.description,
+        author: this.props.articleId.author,
+        tags: this.props.articleId.tags,
     }   
     
     render() {
@@ -44,7 +44,6 @@ class ReadOneArticle extends Component {
                         </tr>
                     </tbody>
                 </table>
-                <button onClick = {this.postArticleHandler}>Create Artile</button>
             </div>
         );
     }

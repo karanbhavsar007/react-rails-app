@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ArticleRow from '../ArticleRow/ArticleRow';
+import ArticleRow from './ArticleRow/ArticleRow';
 
 class ArticlesTable extends Component {
     render() {

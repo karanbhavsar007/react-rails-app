@@ -3,10 +3,10 @@ import axios from 'axios';
 
 class UpdateArticle extends Component {
     state = {
-        title: '',
-        description: '',
-        author: '',
-        tags: '',
+        title: this.props.articleId.title,
+        description: this.props.articleId.description,
+        author: this.props.articleId.author,
+        tags: this.props.articleId.tags,
     }   
     
     postArticleHandler = () => {

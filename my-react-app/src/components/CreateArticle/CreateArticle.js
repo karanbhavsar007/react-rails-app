@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Button } from 'reactstrap';
 
 class CreateArticle extends Component {
     state = {
@@ -54,7 +55,8 @@ class CreateArticle extends Component {
                         </tr>
                     </tbody>
                 </table>
-                <button onClick = {this.postArticleHandler}>Create Artile</button>
+                
+                <Button color="primary" onClick = {this.postArticleHandler}>Create Artile</Button>
             </div>
         );
     }

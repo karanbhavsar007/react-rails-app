@@ -6,7 +6,7 @@ class TopAction extends Component {
             <div>
                 <a href='#'
                     onClick={() => this.props.changeAppMode('create')}
-                    > Create Article
+                    className='btn btn-primary margin-bottom-1em'> Create Article
                 </a>
             </div>
         );

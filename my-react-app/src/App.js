@@ -14,11 +14,11 @@ class App extends Component {
   changeAppMode = (newMode, articleId) => {
     this.setState({currentMode: newMode});
             if(articleId !== undefined){
-              this.setState({articleId: articleId});
-            }
-  }
+                this.setState({articleId: articleId});
+            } 
+  };
 
-  render() {
+  render() {  
     let modeComponent = <ReadArticles changeAppMode={this.changeAppMode}/>
     
     switch(this.state.currentMode){
@@ -39,7 +39,6 @@ class App extends Component {
       default:
           break;
     }
-    
     return modeComponent;
   }
 }

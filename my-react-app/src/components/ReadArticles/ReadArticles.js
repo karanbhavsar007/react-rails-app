@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ArticlesTable from '../ArticlesTable/ArticlesTable';
+import ArticlesTable from './ArticlesTable/ArticlesTable';
 import TopAction from '../TopAction/TopAction';
 
 class ReadArticles extends Component {
@@ -11,7 +11,6 @@ class ReadArticles extends Component {
     componentDidMount () {
         axios.get('http://localhost:3000/api/v1/articles')
             .then(response => {
-                console.log(response.data);
                 this.setState({articles: response.data});
             });
     } 
