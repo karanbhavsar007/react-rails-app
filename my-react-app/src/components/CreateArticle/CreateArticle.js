@@ -22,6 +22,10 @@ class CreateArticle extends Component {
     render() {
         return (
             <div>
+                <a href='#'
+            onClick={() => this.props.changeAppMode('read')}
+            > Read Products
+        </a>
                 <table>
                     <tbody>
                         <tr>

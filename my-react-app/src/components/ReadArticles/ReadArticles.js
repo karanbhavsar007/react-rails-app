@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ArticlesTable from '../ArticlesTable/ArticlesTable';
+import TopAction from '../TopAction/TopAction';
 
 class ReadArticles extends Component {
     state = {
@@ -19,8 +20,8 @@ class ReadArticles extends Component {
 
         return (
               <div>
-                  <ArticlesTable
-                    articles={filteredArticles} />
+                <TopAction changeAppMode={this.props.changeAppMode} />
+                <ArticlesTable articles={filteredArticles} changeAppMode={this.props.changeAppMode} />    
               </div>
           );
     }

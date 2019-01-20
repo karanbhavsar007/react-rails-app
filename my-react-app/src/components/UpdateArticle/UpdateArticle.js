@@ -3,10 +3,10 @@ import axios from 'axios';
 
 class UpdateArticle extends Component {
     state = {
-        title: this.props.article.title,
-        description: this.props.article.description,
-        author: this.props.article.author,
-        tags: this.props.article.tags,
+        title: '',
+        description: '',
+        author: '',
+        tags: '',
     }   
     
     postArticleHandler = () => {
@@ -22,6 +22,11 @@ class UpdateArticle extends Component {
     render() {
         return (
             <div>
+                <a href='#'
+                onClick={() => this.props.changeAppMode('read')}
+                >
+                Read Products
+            </a>
                 <table>
                     <tbody>
                         <tr>

@@ -4,7 +4,7 @@ import ArticleRow from '../ArticleRow/ArticleRow';
 class ArticlesTable extends Component {
     render() {
         const rows = this.props.articles.map(article => {
-            return <ArticleRow key={article.id} article={article} />;
+            return <ArticleRow key={article.id} article={article} changeAppMode={this.props.changeAppMode} />;
         });
 
         return (
@@ -26,6 +26,5 @@ class ArticlesTable extends Component {
           );
     }
 }
-
 
 export default ArticlesTable;

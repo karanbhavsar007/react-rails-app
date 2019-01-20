@@ -10,7 +10,13 @@ class DeleteArticle extends Component {
     render() {
         return (
             <div>
-                <button onClick = {this.deletePostHandler}>Delete Artile</button>
+                <div>Are you sure?</div>
+                <div>
+                    <div>
+                        <button onClick={this.deletePostHandler}>Yes</button>
+                        <button onClick={() => this.props.changeAppMode('read')}>No</button>
+                    </div>
+                </div>
             </div>
         );
     }
