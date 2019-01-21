@@ -9,6 +9,7 @@ class CreateArticle extends Component {
         description: '',
         author: '',
         tags: '',
+        validation: true,
         successCreation: null,
     }   
     
@@ -19,18 +20,25 @@ class CreateArticle extends Component {
             author: this.state.author,
             tags: this.state.tags,
         }
-        axios.post('http://localhost:3000/api/v1/articles', article)
-            .then(response => {
-                this.setState({successCreation: response.status});
+
+        if(article.title === '' || article.description === '' || article.author === '' || article.tags === '' )
+            this.setState({validation:  false});
+        else {
+            axios.post('http://localhost:3000/api/v1/articles', article)
+                .then(response => {
+                    this.setState({successCreation: response.status});
             });
-        
-    }
+        }
+    };
     
     render() {
         return (
             <div>
                 {this.state.successCreation === 200 ?
                 <Alert color="success">Article saved successfully!</Alert>: null}
+                
+                {this.state.validation === false ?
+                <Alert color="danger">One of the fields is missing!</Alert>: null}            
                                 
                 <Button color="primary" onClick={() => this.props.changeAppMode('read')}>Home</Button>
                 
@@ -39,25 +47,25 @@ class CreateArticle extends Component {
                         <tr>
                             <td>Title</td>
                             <td>
-                            <Input type="text" placeholder="title" required value={this.state.title} onChange={(event) => this.setState({title: event.target.value})} />   
+                            <Input placeholder="title" value={this.state.title} onChange={(event) => this.setState({title: event.target.value})} />   
                             </td>    
                         </tr>
                         <tr>
                             <td>Description</td>
                             <td>
-                                <Input type="textarea" placeholder="description" required value={this.state.description} onChange={(event) => this.setState({description: event.target.value})}/>
+                                <Input placeholder="description" value={this.state.description} onChange={(event) => this.setState({description: event.target.value})}/>
                             </td>    
                         </tr>
                         <tr>
                             <td>Author</td>
                             <td>
-                                <Input type="text" placeholder="author" required value={this.state.author} onChange={(event) => this.setState({author: event.target.value})}/>
+                                <Input placeholder="author" value={this.state.author} onChange={(event) => this.setState({author: event.target.value})}/>
                             </td>    
                         </tr>
                         <tr>
                             <td>Tags</td>
                             <td>
-                                <Input type="text" placeholder="tags" value={this.state.tags} onChange={(event) => this.setState({tags: event.target.value})}/>
+                                <Input placeholder="tags" value={this.state.tags} onChange={(event) => this.setState({tags: event.target.value})}/>
                             </td>    
                         </tr>
                     </tbody>
