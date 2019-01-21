@@ -25,7 +25,7 @@ class UpdateArticle extends Component {
         //console.log(this.state.article);
         return (
             <div>
-                <Button color="primary" onClick={() => this.props.changeAppMode('read')}>Read Artile</Button>
+                <Button color="primary" onClick={() => this.props.changeAppMode('read')}>Home</Button>
                 <Table bordered hover>
                     <tbody>
                         <tr>
@@ -37,7 +37,7 @@ class UpdateArticle extends Component {
                         <tr>
                             <td>Description</td>
                             <td>
-                                <Input value={this.state.description} onChange={(event) => this.setState({description: event.target.value})}/>
+                                <Input type="textarea" value={this.state.description} onChange={(event) => this.setState({description: event.target.value})}/>
                             </td>    
                         </tr>
                         <tr>
@@ -54,6 +54,7 @@ class UpdateArticle extends Component {
                         </tr>
                     </tbody>
                 </Table>
+
                 <Button color="info" onClick = {this.postArticleHandler}>Update Artile</Button>
             </div>
         );

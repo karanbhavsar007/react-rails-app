@@ -12,33 +12,25 @@ class ReadOneArticle extends Component {
     render() {
         return (
             <div>
-                <Button color="primary" onClick={() => this.props.changeAppMode('read')}>Read Article</Button>
+                <Button color="primary" onClick={() => this.props.changeAppMode('read')}>Home</Button>
             
                 <Table bordered hover>
                     <tbody>
                         <tr>
                             <td>Title</td>
-                            <td>
-                                <Input value={this.state.title} onChange={(event) => this.setState({title: event.target.value})}/>
-                            </td>    
+                            <td>{this.state.title}</td>    
                         </tr>
                         <tr>
                             <td>Description</td>
-                            <td>
-                                <Input value={this.state.description} onChange={(event) => this.setState({description: event.target.value})}/>
-                            </td>    
+                            <td>{this.state.description}</td>        
                         </tr>
                         <tr>
                             <td>Author</td>
-                            <td>
-                                <Input value={this.state.author} onChange={(event) => this.setState({author: event.target.value})}/>
-                            </td>    
+                            <td>{this.state.author}</td>    
                         </tr>
                         <tr>
                             <td>Tags</td>
-                            <td>
-                                <Input value={this.state.tags} onChange={(event) => this.setState({tags: event.target.value})}/>
-                            </td>    
+                            <td>{this.state.tags}</td>   
                         </tr>
                     </tbody>
                 </Table>

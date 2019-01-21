@@ -24,7 +24,7 @@ class CreateArticle extends Component {
     render() {
         return (
             <div>
-                <Button color="primary" onClick={() => this.props.changeAppMode('read')}>Read Artile</Button>
+                <Button color="primary" onClick={() => this.props.changeAppMode('read')}>Home</Button>
                 
                 <Table bordered hover>
                     <tbody>
@@ -37,7 +37,7 @@ class CreateArticle extends Component {
                         <tr>
                             <td>Description</td>
                             <td>
-                                <Input placeholder="description" value={this.state.description} onChange={(event) => this.setState({description: event.target.value})}/>
+                                <Input type="textarea" placeholder="description" value={this.state.description} onChange={(event) => this.setState({description: event.target.value})}/>
                             </td>    
                         </tr>
                         <tr>
