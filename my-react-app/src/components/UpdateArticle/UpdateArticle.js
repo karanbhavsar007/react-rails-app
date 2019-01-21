@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Button, Table, Input } from 'reactstrap';
+import { Alert, Button, Table, Input } from 'reactstrap';
 
 class UpdateArticle extends Component {
     state = {
@@ -8,6 +8,7 @@ class UpdateArticle extends Component {
         description: this.props.articleId.description,
         author: this.props.articleId.author,
         tags: this.props.articleId.tags,
+        successCreation: null,
     }   
     
     postArticleHandler = () => {
@@ -17,7 +18,10 @@ class UpdateArticle extends Component {
             author: this.state.author,
             tags: this.state.tags,
         }
-        axios.put('http://localhost:3000/api/v1/articles/' + this.props.articleId.id, article);
+        axios.put('http://localhost:3000/api/v1/articles/' + this.props.articleId.id, article)
+            .then(response => {
+                this.setState({successUpdate: response.status});
+            });
     }
     
     render() {
@@ -25,6 +29,9 @@ class UpdateArticle extends Component {
         //console.log(this.state.article);
         return (
             <div>
+                {this.state.successUpdate === 200 ?
+                <Alert color="success">Article updated successfully!</Alert>: null}
+
                 <Button color="primary" onClick={() => this.props.changeAppMode('read')}>Home</Button>
                 <Table bordered hover>
                     <tbody>
@@ -55,7 +62,7 @@ class UpdateArticle extends Component {
                     </tbody>
                 </Table>
 
-                <Button color="info" onClick = {this.postArticleHandler}>Update Artile</Button>
+                <Button color="info" onClick = {this.postArticleHandler}>Update Changes</Button>
             </div>
         );
     }

@@ -9,9 +9,6 @@ class ArticlesTable extends Component {
         });
 
         return (
-            !rows.length
-            ? <div className='alert alert-danger'>No products found.</div>
-            :
             <Table bordered hover>
                 <thead>
                     <tr>

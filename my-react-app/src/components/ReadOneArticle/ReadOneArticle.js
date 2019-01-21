@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Table, Input } from 'reactstrap';
+import { Button, Table } from 'reactstrap';
 
 class ReadOneArticle extends Component {
     state = {
