@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Button, Table, Input } from 'reactstrap';
 
 class UpdateArticle extends Component {
     state = {
@@ -16,46 +17,44 @@ class UpdateArticle extends Component {
             author: this.state.author,
             tags: this.state.tags,
         }
-        axios.put('http://localhost:3000/api/v1/articles/' + this.props.article.id, article);
+        axios.put('http://localhost:3000/api/v1/articles/' + this.props.articleId.id, article);
     }
     
     render() {
+    
+        //console.log(this.state.article);
         return (
             <div>
-                <a href='#'
-                onClick={() => this.props.changeAppMode('read')}
-                >
-                Read Products
-            </a>
-                <table>
+                <Button color="primary" onClick={() => this.props.changeAppMode('read')}>Read Artile</Button>
+                <Table bordered hover>
                     <tbody>
                         <tr>
                             <td>Title</td>
                             <td>
-                                <input type='text' value={this.state.title} onChange={(event) => this.setState({title: event.target.value})}/>
+                                <Input value={this.state.title} onChange={(event) => this.setState({title: event.target.value})}/>
                             </td>    
                         </tr>
                         <tr>
                             <td>Description</td>
                             <td>
-                                <input type='text' value={this.state.description} onChange={(event) => this.setState({description: event.target.value})}/>
+                                <Input value={this.state.description} onChange={(event) => this.setState({description: event.target.value})}/>
                             </td>    
                         </tr>
                         <tr>
                             <td>Author</td>
                             <td>
-                                <input type='text' value={this.state.author} onChange={(event) => this.setState({author: event.target.value})}/>
+                                <Input value={this.state.author} onChange={(event) => this.setState({author: event.target.value})}/>
                             </td>    
                         </tr>
                         <tr>
                             <td>Tags</td>
                             <td>
-                                <input type='text' value={this.state.tags} onChange={(event) => this.setState({tags: event.target.value})}/>
+                                <Input value={this.state.tags} onChange={(event) => this.setState({tags: event.target.value})}/>
                             </td>    
                         </tr>
                     </tbody>
-                </table>
-                <button onClick = {this.postArticleHandler}>Update Artile</button>
+                </Table>
+                <Button color="info" onClick = {this.postArticleHandler}>Update Artile</Button>
             </div>
         );
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Button } from 'reactstrap';
+import { Button, Table, Input } from 'reactstrap';
+import './CreateArticle.css';
 
 class CreateArticle extends Component {
     state = {
@@ -23,40 +24,38 @@ class CreateArticle extends Component {
     render() {
         return (
             <div>
-                <a href='#'
-            onClick={() => this.props.changeAppMode('read')}
-            > Read Products
-        </a>
-                <table>
+                <Button color="primary" onClick={() => this.props.changeAppMode('read')}>Read Artile</Button>
+                
+                <Table bordered hover>
                     <tbody>
                         <tr>
                             <td>Title</td>
                             <td>
-                                <input type='text' value={this.state.title} onChange={(event) => this.setState({title: event.target.value})}/>
+                            <Input placeholder="title" value={this.state.title} onChange={(event) => this.setState({title: event.target.value})} />   
                             </td>    
                         </tr>
                         <tr>
                             <td>Description</td>
                             <td>
-                                <input type='text' value={this.state.description} onChange={(event) => this.setState({description: event.target.value})}/>
+                                <Input placeholder="description" value={this.state.description} onChange={(event) => this.setState({description: event.target.value})}/>
                             </td>    
                         </tr>
                         <tr>
                             <td>Author</td>
                             <td>
-                                <input type='text' value={this.state.author} onChange={(event) => this.setState({author: event.target.value})}/>
+                                <Input placeholder="author" value={this.state.author} onChange={(event) => this.setState({author: event.target.value})}/>
                             </td>    
                         </tr>
                         <tr>
                             <td>Tags</td>
                             <td>
-                                <input type='text' value={this.state.tags} onChange={(event) => this.setState({tags: event.target.value})}/>
+                                <Input placeholder="tags" value={this.state.tags} onChange={(event) => this.setState({tags: event.target.value})}/>
                             </td>    
                         </tr>
                     </tbody>
-                </table>
+                </Table>
                 
-                <Button color="primary" onClick = {this.postArticleHandler}>Create Artile</Button>
+                <Button color="info" onClick = {this.postArticleHandler}>Create Artile</Button>
             </div>
         );
     }

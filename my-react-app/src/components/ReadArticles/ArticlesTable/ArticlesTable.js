@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ArticleRow from './ArticleRow/ArticleRow';
+import { Table } from 'reactstrap';
 
 class ArticlesTable extends Component {
     render() {
@@ -11,7 +12,7 @@ class ArticlesTable extends Component {
             !rows.length
             ? <div className='alert alert-danger'>No products found.</div>
             :
-            <table className='table table-bordered table-hover'>
+            <Table bordered hover>
                 <thead>
                     <tr>
                         <th>Title</th>
@@ -22,7 +23,7 @@ class ArticlesTable extends Component {
                 <tbody>
                     {rows}
                 </tbody>
-            </table>
+            </Table>
           );
     }
 }

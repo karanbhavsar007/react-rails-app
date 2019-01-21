@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ArticlesTable from './ArticlesTable/ArticlesTable';
-import TopAction from '../TopAction/TopAction';
+import { Button } from 'reactstrap';
 
 class ReadArticles extends Component {
     state = {
@@ -19,7 +19,7 @@ class ReadArticles extends Component {
 
         return (
               <div>
-                <TopAction changeAppMode={this.props.changeAppMode} />
+                <Button color="primary" onClick={() => this.props.changeAppMode('create')}>Create Artile</Button>
                 <ArticlesTable articles={filteredArticles} changeAppMode={this.props.changeAppMode} />    
               </div>
           );
